@@ -1,0 +1,106 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
+<div style="height: 60px; width: 100%; background-color: #a9e5ea;">
+    <img style="height: 60px; width: 460px; position: absolute; right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: #294666;margin-left: 43px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            1</strong></p>
+    <p
+        style="position: absolute;font: normal normal normal 11px/15px Poppins;letter-spacing: 0px;color: #294666;margin-left: 112px;margin-top: 17px;width: 400px;">
+        POR QUE USAR EVIDÊNCIAS NA TOMADA DE DECISÃO EM SAÚDE?<br> AVANÇOS E DESAFIOS NA IMPLEMENTAÇÃO DAS PIE NO BRASIL
+        E NO MUNDO</p>
+</div>
+<div>
+    <div style="margin-left: 40px;margin-top: 38px;width: 808px;">
+        <p>No Brasil, o Centro de Gestão e Estudos Estratégicos (CGEE), organização social supervisionada pelo
+            Ministério da
+            Ciência, Tecnologia, Inovações e Comunicações (MCTIC), realiza pesquisas nacionais com o intuito de
+            subsidiar os
+            processos de tomada de decisão em temas relacionados à ciência, tecnologia e inovação. </p>
+        <p>Clique no título a seguir e
+            conheça uma pesquisa desenvolvida com o intuito de conhecer como a sociedade brasileira pensa e consome
+            temas
+            relacionados à ciência e tecnologia (C&amp;T).</p>
+        <div class="animate__animated animate__backInRight">
+            <div id="botao_1"
+                style="margin-top: 65px; margin-left: 305px; width: 196px; height: 92px; background: 0% 0% no-repeat padding-box padding-box rgb(206, 228, 241); border-radius: 5px; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                <p style="text-align: center;font: normal normal bold 12px/16px Poppins;color: #294666;">PERCEPÇÃO
+                    PÚBLICA DA CIÊNCIA E TECNOLOGIA NO BRASIL</p>
+            </div>
+        </div>
+        <div>
+            <div class="jan" id="janela_1">
+                <div
+                    style="width: 743px;height: 266px;background: #CEE4F1 0% 0% no-repeat padding-box;border-radius: 12px;display: flex;position: absolute;top: 120px;left: 80px;align-items: center;justify-content: space-evenly;">
+                    <div
+                        style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                        <p style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #294666;">
+                            De
+                            acordo com a pesquisa, 73% dos entrevistados possuem uma visão positiva sobre a C&amp;T,
+                            a
+                            despeito das profundas
+                            mudanças sociopolíticas dos últimos anos. A pesquisa demonstrou também que a maioria da
+                            população brasileira acredita
+                            que os cientistas são confiáveis e desenvolvem coisas úteis para a humanidade, mas
+                            registrou, nos últimos 30 anos, um
+                            descompasso do interesse no tema entre pessoas de alta e baixa escolaridade e entre as
+                            de
+                            baixa e alta renda. Com o
+                            aumento da escolaridade e da renda, a porcentagem de entrevistados declarando muito
+                            interesse em C&amp;T aumenta de forma
+                            acentuada (CENTRO DE GESTÃO E ESTUDOS ESTRATÉGICOS, 2019). </p>
+                        <p style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #294666;">
+                            Esse
+                            dado é muito importante, sobretudo quando avaliamos os
+                            dados epidemiológicos da covid-19 no Brasil. Segundo pesquisa recente, os aspectos
+                            relacionados à vulnerabilidade
+                            socioeconômica influenciaram o comportamento da doença no país mais fortemente do que
+                            aspectos como idade e outros
+                            fatores de risco (ROCHA et al., 2021).</p>
+                    </div>
+                    <p
+                        style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #294666;position: absolute;top: -9px;left: 730px;">
+                        x</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer style="width: 1008px;height: 19px;display: flex;background-color: #CEE4F1;">
+    <div style="margin-top: -8px;display: flex;margin-left: 42px;">
+        <p style="color: #294666;font-size: 11px;">GESTÃO DA APS INFORMADA POR EVIDÊNCIAS</p>
+    </div>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
