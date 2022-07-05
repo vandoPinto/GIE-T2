@@ -1,7 +1,18 @@
+<style>
+    .jan {
+        z-index: 30;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .8);
+    }
+</style>
 <div style="height: 60px; width: 100%; background-color: #a9e5ea;">
     <img style="height: 60px; width: 460px; position: absolute; right: 0px;" src="recursos/imgs/H1.png">
     <p style="position: absolute;color: #294666;margin-left: 43px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
-            1</strong></p>
+            2</strong></p>
     <p
         style="position: absolute;font: normal normal normal 11px/15px Poppins;letter-spacing: 0px;color: #294666;margin-left: 112px;margin-top: 17px;width: 400px;">
         POR QUE USAR EVIDÊNCIAS NA TOMADA DE DECISÃO EM SAÚDE?<br> AVANÇOS E DESAFIOS NA IMPLEMENTAÇÃO DAS PIE NO BRASIL
@@ -10,17 +21,23 @@
 <div>
     <div style="display: flex;">
         <div style="width: 386px;margin-left: 40px;margin-top: 108px;">
-            <p>No Brasil, há uma experiência inspiradora no município de Piripiri, com pouco mais de 50 mil
-                habitantes, no estado do
-                Piauí. </p>
-            <p>Em 2010, a Secretaria Municipal de Saúde (SMS) de Piripiri implementou um Núcleo de Evidências em
-                Saúde (NEV)
-                visando promover o uso do conhecimento científico na melhoria dos serviços e do sistema local de
-                saúde, sobretudo de
-                Atenção Básica, a fim de alcançar melhores resultados em saúde (BARRETO; SOUZA, 2013).</p>
+            <p>Nesse cenário, a importância do contexto de intervenção pode ser percebida, inclusive, nos arranjos
+                regionais através
+                dos quais a rede se organiza, ratificando a necessidade de adaptar as evidências científicas aos
+                diferentes contextos
+                nos âmbitos internacional, nacional e subnacional. </p>
+            <p>Clique no quadro para saber a distribuição global dessa rede.</p>
         </div>
-        <div class="animate__animated animate__backInRight">
-            <img src="recursos/imgs/img-slide-22.svg" style="width: 280px;margin-left: 78px;margin-top: 13px;">
+        <div id="botao_1" class="animate__animated animate__backInRight" style="cursor: pointer;">
+            <img src="recursos/imgs/img-slide-21.svg" style="width: 353px;margin-left: 65px;margin-top: 60px;">
+        </div>
+        <div class="jan" id="janela_1" style="cursor: pointer; display: none;">
+            <img src="recursos/imgs/interacao-slide-21.svg"
+                style="width: 770px;left: 55px;top: 26px;position: absolute;">
+            <p
+                style="font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: white;position: absolute;top: -9px;left: 870px;">
+                x</p>
+
         </div>
     </div>
 </div>
@@ -29,3 +46,28 @@
         <p style="color: #294666;font-size: 11px;">GESTÃO DA APS INFORMADA POR EVIDÊNCIAS</p>
     </div>
 </footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
